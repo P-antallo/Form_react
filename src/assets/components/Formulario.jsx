@@ -17,6 +17,11 @@ const Formulario = ({ onSubmit }) => {
       alert('Por favor, ingresa un email válido.');
       return;
     }
+    const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    if (!passwordRegex.test(password)) {
+      alert('La contraseña debe contener al menos un número y un símbolo especial.');
+      return;
+    }
     if (!password || password !== confirmPassword) {
       alert('Las contraseñas no coinciden o están vacías.');
       return;
